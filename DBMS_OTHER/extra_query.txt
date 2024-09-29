@@ -1,0 +1,396 @@
+https://notepad.pw/dcp24
+
+--create tables
+
+create table order1
+(
+	ord_no int,
+	purch_amt decimal(8,2),
+	ord_date datetime,
+	customer_id int,
+	salesman_id int
+);
+
+create table customer
+(
+	customer_id int,
+	cust_name varchar(50),
+	city varchar(30),
+	grade int,
+	salesman_id int
+);
+
+create table salesman
+(
+	salesman_id int,
+	name varchar(50),
+	city varchar(30),
+	commission decimal(4,2)
+);
+
+create table item
+(
+	pro_id int,
+	pro_name varchar(50),
+	pro_price decimal(8,2),
+	pro_com int
+);
+
+--inert data into tables
+
+insert into order1 VALUES(70001,150.5,'05-OCT-2012',3005,5002);
+insert into order1 VALUES(70009,270.65,'10-SEP-2012',3001,5005);
+insert into order1 VALUES(70002,65.26,'05-OCT-2012',3002,5001);
+insert into order1 VALUES(70004,110.5,'17-AUG-2012',3009,5003);
+insert into order1 VALUES(70007,948.5,'10-SEP-2012',3005,5002);
+insert into order1 VALUES(70005,2400.5,'27-JULY-2012',3007,5001);
+insert into order1 VALUES(70008,5760,'10-SEP-2012',3002,5001);
+insert into order1 VALUES(70010,1983.43,'10-OCT-2012',3004,5006);
+insert into order1 VALUES(70003,2480.4,'10-OCT-2012',3009,5003);
+insert into order1 VALUES(70012,250.45,'27-JUNE-2012',3008,5002);
+insert into order1 VALUES(70011,75.29,'17-AUG-2012',3003,5007);
+insert into order1 VALUES(70013,3045.6,'25-APR-2012',3002,5001);
+
+select * from order1;
+
+insert into customer VALUES(3002,'Nick Rimando','New York',100,5001);
+insert into customer VALUES(3007,'Brad Davis','New Yoek',200,5001);
+insert into customer VALUES(3005,'Graham Zusi','California',200,5002);
+insert into customer VALUES(3008,'Julian Green','London',300,5002);
+insert into customer VALUES(3004,'Fabian Johnson','Pairs',300,5006);
+insert into customer VALUES(3009,'Geoff Cameron','Berlin',100,5003);
+insert into customer VALUES(3003,'Jozy Altidor','Moscow',200,5007);
+insert into customer VALUES(3001,'Brad Guzan','London',NULL,5005);
+
+select * from customer;
+
+insert into salesman VALUES(5001,'James Hoog','New Youk',0.15);
+insert into salesman VALUES(5002,'Nail Knite','Paris',0.13);
+insert into salesman VALUES(5005,'Pit Alex','London',0.11);
+insert into salesman VALUES(5006,'Mc Lyon','Paris',0.14);
+insert into salesman VALUES(5007,'Paul Adam','Rome',0.13);
+insert into salesman VALUES(5003,'Lauson Hen','San Jose',0.12);
+
+select * from salesman;
+
+insert into item VALUES(101,'mother board',3200.00,15);
+insert into item VALUES(102,'key bord',450.00,16);
+insert into item VALUES(103,'zip drive',250.00,14);
+insert into item VALUES(104,'speaker',550.00,11);
+insert into item VALUES(105,'monitor',5000.00,11);
+insert into item VALUES(106,'dvd drive',800.00,12);
+insert into item VALUES(107,'cd drive',800.00,12);
+insert into item VALUES(108,'printer',2600.00,13);
+insert into item VALUES(109,'refill catridge',350.00,13);
+insert into item VALUES(110,'mouse',250.00,12);
+--create tables
+
+create table order1
+(
+	ord_no int,
+	purch_amt decimal(8,2),
+	ord_date datetime,
+	customer_id int,
+	salesman_id int
+);
+
+create table customer
+(
+	customer_id int,
+	cust_name varchar(50),
+	city varchar(30),
+	grade int,
+	salesman_id int
+);
+
+create table salesman
+(
+	salesman_id int,
+	name varchar(50),
+	city varchar(30),
+	commission decimal(4,2)
+);
+
+create table item
+(
+	pro_id int,
+	pro_name varchar(50),
+	pro_price decimal(8,2),
+	pro_com int
+);
+
+--inert data into tables
+
+insert into order1 VALUES(70001,150.5,'05-OCT-2012',3005,5002);
+insert into order1 VALUES(70009,270.65,'10-SEP-2012',3001,5005);
+insert into order1 VALUES(70002,65.26,'05-OCT-2012',3002,5001);
+insert into order1 VALUES(70004,110.5,'17-AUG-2012',3009,5003);
+insert into order1 VALUES(70007,948.5,'10-SEP-2012',3005,5002);
+insert into order1 VALUES(70005,2400.5,'27-JULY-2012',3007,5001);
+insert into order1 VALUES(70008,5760,'10-SEP-2012',3002,5001);
+insert into order1 VALUES(70010,1983.43,'10-OCT-2012',3004,5006);
+insert into order1 VALUES(70003,2480.4,'10-OCT-2012',3009,5003);
+insert into order1 VALUES(70012,250.45,'27-JUNE-2012',3008,5002);
+insert into order1 VALUES(70011,75.29,'17-AUG-2012',3003,5007);
+insert into order1 VALUES(70013,3045.6,'25-APR-2012',3002,5001);
+
+select * from order1;
+
+insert into customer VALUES(3002,'Nick Rimando','New York',100,5001);
+insert into customer VALUES(3007,'Brad Davis','New York',200,5001);
+insert into customer VALUES(3005,'Graham Zusi','California',200,5002);
+insert into customer VALUES(3008,'Julian Green','London',300,5002);
+insert into customer VALUES(3004,'Fabian Johnson','Pairs',300,5006);
+insert into customer VALUES(3009,'Geoff Cameron','Berlin',100,5003);
+insert into customer VALUES(3003,'Jozy Altidor','Moscow',200,5007);
+insert into customer VALUES(3001,'Brad Guzan','London',NULL,5005);
+
+select * from customer;
+
+insert into salesman VALUES(5001,'James Hoog','New Youk',0.15);
+insert into salesman VALUES(5002,'Nail Knite','Paris',0.13);
+insert into salesman VALUES(5005,'Pit Alex','London',0.11);
+insert into salesman VALUES(5006,'Mc Lyon','Paris',0.14);
+insert into salesman VALUES(5007,'Paul Adam','Rome',0.13);
+insert into salesman VALUES(5003,'Lauson Hen','San Jose',0.12);
+
+select * from salesman;
+
+insert into item VALUES(101,'mother board',3200.00,15);
+insert into item VALUES(102,'key bord',450.00,16);
+insert into item VALUES(103,'zip drive',250.00,14);
+insert into item VALUES(104,'speaker',550.00,11);
+insert into item VALUES(105,'monitor',5000.00,11);
+insert into item VALUES(106,'dvd drive',800.00,12);
+insert into item VALUES(107,'cd drive',800.00,12);
+insert into item VALUES(108,'printer',2600.00,13);
+insert into item VALUES(109,'refill catridge',350.00,13);
+insert into item VALUES(110,'mouse',250.00,12);
+
+
+1. Display Total No of student 
+2. Display Branch Wise Student Total
+3. Display Branch wise Maximum SPI
+4. Display Name whose SPI is greater than 7
+5. Count the Student whose SPI is lessthan 5 and belong to CE Branch
+6. Count the Student whose backlog is greater than 3
+7. retrieve the all student information
+8. Display branch wise student count 
+9. Count the total Branch in student table. Give the Label 'Total Branch'
+10. Display Total branch, Total Student
+11. Display Maximum SPI, Minimum SPI with Proper Label
+12. Display Average SPI 
+13. Display Branch wise Average SPI 
+14. Display Student Detail whose name Starts with M and Belonging to CE Branch
+15. Display Student Name, Student Branch, Student SPI from STUDENT Table
+16. Display all the detail of student whose Roll no is less than 4
+17. Update the SPI to 2.65 whose name is Amit
+18. Display all the Student Whose Name starts with M and last second character is S
+19. Display Average SPI, Maximum SPI, Minimum SPI
+ 
+
+
+		
+ORDER 
+ord_no	purch_amt   ord_date    	customer_id  	salesman_id
+----------  ----------  -------------  	-------------   -----------
+70001       150.5       2012-10-05  	3005         	5002
+70009       270.65      2012-09-10  	3001         	5005
+70002       65.26       2012-10-05  	3002         	5001
+70004       110.5       2012-08- 17 	3009         	5003
+70007       948.5       2012-09-10  	3005         	5002
+70005       2400.6      2012-07-27  	3007         	5001
+70008       5760        2012-09-10  	3002         	5001
+70010       1983.43     2012-10-10  	3004         	5006
+70003       2480.4      2012-10-10  	3009         	5003
+70012       250.45      2012-06-27  	3008         	5002
+70011       75.29       2012-08-17  	3003         	5007
+70013       3045.6      2012-04-25  	3002         	5001
+
+CUSTOMER
+
+
+ customer_id		cust_name         	city        	grade    	salesman_id 
+---------------		---------------		-----------		--------	--------------
+3002        		Nick Rimando      	New York      	100         5001
+3007        		Brad Davis         	New York      	200         5001
+3005        		Graham Zusi        	California      	200         5002
+3008        		Julian Green        	London          	300         5002
+3004        		Fabian Johnson  		Paris           	300         5006
+3009        		Geoff Cameron  		Berlin          	100         5003
+3003        		Jozy Altidor        	Moscow         	200         5007
+3001        		Brad Guzan       		London                      	5005
+
+
+SALESMAN
+salesman_id     	name			city			commission 
+-------------	-------------	---------------	-----------
+5001       		James Hoog  	New York        	0.15
+5002       		Nail Knit      	Paris           	0.13
+5005      		Pit Alex        	London          	0.11
+5006      		Mc Lyon         	Paris           	0.14
+5007			Paul Adam		Rome			0.13                 
+5003    		Lauzon Hen    	San Jose        	0.12
+
+item
+
+PRO_ID	PRO_NAME				PRO_PRICE		PRO_COM
+-------     -------------------------     --------------    ----------
+101         Mother Board                  3200.00           15
+102 	      Key Board                     450.00            16
+103         ZIP drive                     250.00            14
+104         Speaker                       550.00            16
+105         Monitor                       5000.00         	11
+106         DVD drive                     900.00         	12
+107         CD drive                      800.00         	12
+108         Printer                       2600.00         	13
+109         Refill cartridge              350.00         	13
+110         Mouse                         250.00         	12
+
+
+1. From the following table, write a SQL query to calculate total purchase amount of all orders. Return total purchase amount
+sum
+17541.18
+
+2 From the following table, write a SQL query to calculate the average purchase amount of all orders. Return average purchase amount.
+avg
+1461.7650000000000000
+
+3. From the following table, write a SQL query that counts the number of unique salespeople. Return number of salespeople.
+count
+6
+
+4. From the following table, write a SQL query to count the number of customers. Return number of customers
+count
+8
+
+5. From the following table, write a SQL query to determine the number of customers who received at least one grade for their activity.
+count
+7
+
+6. From the following table, write a SQL query to find the maximum purchase amount. 
+max
+5760.00
+
+7. From the following table, write a SQL query to find the minimum purchase amount.
+min
+65.26
+
+8. From the following table, write a SQL query to find the highest grade of the customers in each city. Return city, maximum grade.
+city			max
+London		300
+Paris			300
+New York	   	200
+California	      200
+Berlin		100
+Moscow		200
+
+9. From the following table, write a SQL query to find the highest purchase amount ordered by each customer. Return customer ID, maximum purchase amount.
+customer_id	max
+3007		2400.60
+3008		250.45
+3002		5760.00
+3001		270.65
+3009		2480.40
+3004		1983.43
+3003		75.29
+3005		948.5
+
+10. From the following table, write a SQL query to find the highest purchase amount ordered by each customer on a particular date. Return, order date and highest purchase amount.
+customer_id	ord_date	max
+3002		2012-10-05	65.26
+3003		2012-08-17	75.29
+3005		2012-10-05	150.50
+3007		2012-07-27	2400.60
+3009		2012-08-17	110.50
+3001		2012-09-10	270.65
+3002		2012-09-10	5760.00
+3005		2012-09-10	948.50
+3009		2012-10-10	2480.40
+3008		2012-06-27	250.45
+3004		2012-10-10	1983.43
+3002		2012-04-25	3045.60
+
+11. From the following table, write a SQL query to determine the highest purchase amount made by each salesperson on '2012-08-17'. Return salesperson ID, purchase amount 
+salesman_id	max
+5003		110.50
+5007		75.29
+
+12. From the following table, write a SQL query to find the highest order (purchase) amount by each customer on a particular order date. Filter the result by highest order (purchase) amount above 2000.00. Return customer id, order date and maximum purchase amount.
+customer_id	ord_date	max
+3007		2012-07-27	2400.60
+3002		2012-09-10	5760.00
+3009		2012-10-10	2480.40
+3002		2012-04-25	3045.60
+
+13. From the following table, write a SQL query to find the maximum order (purchase) amount in the range 2000 - 6000 (Begin and end values are included.) by combination of each customer and order date. Return customer id, order date and maximum purchase amount
+customer_id	ord_date	max
+3007		2012-07-27	2400.60
+3002		2012-09-10	5760.00
+3009		2012-10-10	2480.40
+3002		2012-04-25	3045.60
+
+14. From the following table, write a SQL query to find the maximum order (purchase) amount based on the combination of each customer and order date. Filter the rows for maximum order (purchase) amount is either 2000, 3000, 5760, 6000. Return customer id, order date and maximum purchase amount.
+customer_id	ord_date	max
+3002		2012-09-10	5760.00
+
+15. From the following table, write a SQL query to determine the maximum order amount for each customer. The customer ID should be in the range 3002 and 3007(Begin and end values are included.). Return customer id and maximum purchase amount.
+customer_id	max
+3002		5760.00
+3007		2400.60
+3004		1983.43
+3003		75.29
+3005		948.50
+
+16. From the following table, write a SQL query to find the maximum order (purchase) amount for each customer. The customer ID should be in the range 3002 and 3007(Begin and end values are included.). Filter the rows for maximum order (purchase) amount is higher than 1000. Return customer id and maximum purchase amount.
+customer_id	max
+3002		5760.00
+3007		2400.60
+3004		1983.43
+
+17. From the following table, write a SQL query to determine the maximum order (purchase) amount generated by each salesperson. Filter the rows for the salesperson ID is in the range 5003 and 5008 (Begin and end values are included.). Return salesperson id and maximum purchase amount.
+salesman_id	max
+5005		270.65
+5003		2480.40
+5007		75.29
+5006		1983.43
+
+18. From the following table, write a SQL query to count all the orders generated on '2012-08-17'. Return number of orders
+count
+2
+
+19. From the following table, write a SQL query to count the number of salespeople in a city. Return number of salespeople.
+count
+6
+
+20. From the following table, write a SQL query to count the number of orders based on the combination of each order date and salesperson. Return order date, salesperson id
+ord_date	salesman_id	count
+2012-07-27	5001		1
+2012-08-17	5007		1
+2012-04-25	5001		1
+2012-09-10	5002		1
+2012-10-05	5002		1
+2012-10-10	5003		1
+2012-09-10	5005		1
+2012-08-17	5003		1
+2012-06-27	5002		1
+2012-09-10	5001		1
+2012-10-05	5001		1
+2012-10-10	5006		1
+
+21. From the following table, write a SQL query to calculate the average product price. Return average product price.
+Average Price
+1435.0000000000000000
+
+22. From the following table, write a SQL query to count the number of products whose price are higher than or equal to 350. Return number of products.
+Number of Products
+8
+
+23. From the following table, write a SQL query to compute the average price for unique companies. Return average price and company id.
+Average Price			Company ID
+250.0000000000000000		14
+650.0000000000000000		12
+3200.0000000000000000		15
+5000.0000000000000000		11
+1475.0000000000000000		13
+500.0000000000000000		16

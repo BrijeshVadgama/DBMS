@@ -1,0 +1,285 @@
+                                         
+
+Employee(EID, Ename, DeptID, Salary, HOD/{EID})
+Department(DID, Dname)
+Project(PID, Pname, EID) 
+
+1. List employees and their departments
+2. List employees and the projects they are assigned to
+3. List employees, their departments, and the projects they are assigned to
+4. List all employees and their departments (including employees without departments):
+5. List all employees and the projects they are assigned to (including employees not assigned to any project):
+6. List all departments and the employees in each department (including departments with no employees):
+7.  List all projects and the employees assigned to each project (including projects with no assigned employees)
+8. List all employees and their departments (including employees without departments) and all departments (including those without employees):
+9. Calculate the total salary per department:
+10. List  employees and their project count (including employees not assigned to any project):
+11.  List all departments and their employee count (including departments with no employees):
+12. List employees and their managers (HODs):
+13. List employees who are assigned to more than one project:
+14.  List employees and their project count, even if they have no projects assigned:
+15. List departments and the highest salary within each department (including departments with no employees):
+16. List employees and their colleagues (employees in the same department):
+17. List employees and the average salary of their department
+18. Retrieve Employees Who Earn More Than $50,000:
+19. All Employees and Their Head of Department (HOD) 
+20. Find Projects Without Assigned Employees:
+21. Retrieve Employees and Their Respective Department Names with Alias
+22. Find the Highest Salary Among Employees:
+
+
+
+JOINS 
+
+PRODUCTS:
+
+product_id	product_name
+1			Processor
+2			Disk
+3			Computer
+4			CPU
+5			Mouse
+6			Keyboard
+
+ORDERS:
+				
+order_id	order_date	customer_id	product_id	quantity
+1		01-08-2023	101			1			5
+2		03-08-2023	102			2			3
+3		05-08-2023	101			3			12
+4		10-08-2023	103			2			1
+5		15-08-2023	102			4			4
+
+CUSTOMERS:	
+			
+customer_id	customer_name	email			city
+101		Alice		alice@example.com	New York
+102		Bob		bob@example.com		Los Angeles
+103		Carol		carol@example.com	Chicago
+104		David		david@example.com	San Francisco
+
+				
+1. List all orders with customer names:					
+2. Calculate the total quantity of each product ordered display the name and total quantity:					
+3. Find customers who ordered product 2:					
+4. List all orders placed in August 2023:					
+5. Calculate the total quantity of orders for each customer:					
+6. Find customers who placed orders for more than 10 products in total:					
+7. List orders and include customer email addresses:					
+8. Calculate the total quantity ordered for each product by customers in New York:					
+9. Find orders placed by customers in Los Angeles in August 2023:					
+10. Calculate the total quantity of each product ordered by customers in Chicago:					
+11. Find customers who ordered product 3 in August 2023:					
+12. Calculate the total quantity ordered by customers in San Francisco:					
+13. List all orders placed in August 2023 by customers named Alice:					
+14. Calculate the total quantity ordered for each product by customers in Los Angeles:					
+15. Find customers who placed orders for more than 15 products in total in August 2023:					
+16. List orders and include customer cities:					
+17. Calculate the total quantity ordered for each product by customers in New York in August 2023:					
+18. Find orders placed by customers in Chicago in August 2023:					
+19. Calculate the total quantity of product 1 ordered by customers in San Francisco:					
+20. List all orders placed in August 2023 by customers named Bob:					
+
+-1. Lis-t all orders with customer names:		
+SELECT o.order_id, o.order_date, c.customer_name, o.product_id, o.quantity
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id;
+
+--2. Calculate the total quantity of each product ordered:
+SELECT o.product_id, SUM(o.quantity) AS total_quantity
+FROM orders o
+GROUP BY o.product_id;
+
+--3. Find customers who ordered product 2:
+SELECT c.customer_name, o.order_id, o.order_date
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE o.product_id = 2;
+
+--4. List all orders placed in August 2023:
+SELECT o.order_id, o.order_date, c.customer_name, o.product_id, o.quantity
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE o.order_date >= '2023-08-01' AND o.order_date <= '2023-08-31';
+
+--5. Calculate the total quantity of orders for each customer:
+SELECT c.customer_name, SUM(o.quantity) AS total_quantity_ordered
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+GROUP BY c.customer_name;
+
+--6. Find customers who placed orders for more than 10 products in total:
+SELECT c.customer_name, SUM(o.quantity) AS total_quantity_ordered
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+GROUP BY c.customer_name
+HAVING SUM(o.quantity) > 10;
+
+--7. List orders and include customer email addresses:
+SELECT o.order_id, o.order_date, c.email, o.product_id, o.quantity
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id;
+
+--8. Calculate the total quantity ordered for each product by customers in New York:
+SELECT o.product_id, SUM(o.quantity) AS total_quantity_ordered
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.city = 'New York'
+GROUP BY o.product_id;
+
+--9. Find orders placed by customers in Los Angeles in August 2023:
+SELECT o.order_id, o.order_date, c.customer_name, o.product_id, o.quantity
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.city = 'Los Angeles' AND o.order_date >= '2023-08-01' AND o.order_date <= '2023-08-31';
+
+--10. Calculate the total quantity of each product ordered by customers in Chicago:	
+SELECT o.product_id, SUM(o.quantity) AS total_quantity_ordered
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.city = 'Chicago'
+GROUP BY o.product_id;
+
+--11. Find customers who ordered product 3 in August 2023:
+SELECT c.customer_name, o.order_id, o.order_date
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE o.product_id = 3 AND o.order_date >= '2023-08-01' AND o.order_date <= '2023-08-31';
+
+--12. Calculate the total quantity ordered by customers in San Francisco:	
+SELECT c.customer_name, SUM(o.quantity) AS total_quantity_ordered
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.city = 'San Francisco'
+GROUP BY c.customer_name;
+
+--13. List all orders placed in August 2023 by customers named Alice:
+SELECT o.order_id, o.order_date, c.customer_name, o.product_id, o.quantity
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.customer_name = 'Alice' AND o.order_date >= '2023-08-01' AND o.order_date <= '2023-08-31';
+
+--14. Calculate the total quantity ordered for each product by customers in Los Angeles:				
+SELECT o.product_id, SUM(o.quantity) AS total_quantity_ordered
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.city = 'Los Angeles'
+GROUP BY o.product_id;
+
+--15. Find customers who placed orders for more than 15 products in total in August 2023:		
+SELECT c.customer_name, SUM(o.quantity) AS total_quantity_ordered
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE o.order_date >= '2023-08-01' AND o.order_date <= '2023-08-31'
+GROUP BY c.customer_name
+HAVING SUM(o.quantity) > 15;
+
+--16. List orders and include customer cities:
+SELECT o.order_id, o.order_date, c.city, o.product_id, o.quantity
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id;
+
+--17. Calculate the total quantity ordered for each product by customers in New York in August 2023:
+SELECT o.product_id, SUM(o.quantity) AS total_quantity_ordered
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.city = 'New York' AND o.order_date >= '2023-08-01' AND o.order_date <= '2023-08-31'
+GROUP BY o.product_id;
+
+--18. Find orders placed by customers in Chicago in August 2023:	
+SELECT o.order_id, o.order_date, c.customer_name, o.product_id, o.quantity
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.city = 'Chicago' AND o.order_date >= '2023-08-01' AND o.order_date <= '2023-08-31';
+
+--19. Calculate the total quantity of product 1 ordered by customers in San Francisco:
+SELECT SUM(o.quantity) AS total_quantity_ordered
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.city = 'San Francisco' AND o.product_id = 1;
+
+--20. List all orders placed in August 2023 by customers named Bob:
+SELECT o.order_id, o.order_date, c.customer_name, o.product_id, o.quantity
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.customer_name = 'Bob' AND o.order_date >= '2023-08-01' AND o.order_date <= '2023-08-31';
+
+
+
+
+
+
+USE [StudentMaster]
+GO
+
+/****** Object:  Table [dbo].[MST_Student]    Script Date: 9/26/2023 12:01:31 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MST_Student](
+	[StudentID] [int] IDENTITY(1,1) NOT NULL,
+	[BranchID] [int] NOT NULL,
+	[CityID] [int] NOT NULL,
+	[StudentName] [varchar](100) NOT NULL,
+	[MobileNoStudent] [varchar](100) NOT NULL,
+	[Email] [varchar](100) NOT NULL,
+	[MobileNoFather] [varchar](100) NULL,
+	[Address] [varchar](500) NULL,
+	[BirthDate] [datetime] NULL,
+	[Age] [int] NULL,
+	[IsActive] [bit] NULL,
+	[Gender] [varchar](50) NULL,
+	[Password] [varchar](100) NULL,
+	[Created] [datetime] NOT NULL,
+	[Modified] [datetime] NOT NULL,
+ CONSTRAINT [PK_MST_Student] PRIMARY KEY CLUSTERED 
+(
+	[StudentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[MST_Student] ADD  CONSTRAINT [DF_MST_Student_Created]  DEFAULT (getdate()) FOR [Created]
+GO
+
+ALTER TABLE [dbo].[MST_Student] ADD  CONSTRAINT [DF_MST_Student_Modified]  DEFAULT (getdate()) FOR [Modified]
+GO
+
+ALTER TABLE [dbo].[MST_Student]  WITH CHECK ADD  CONSTRAINT [FK_MST_Student_LOC_City] FOREIGN KEY([CityID])
+REFERENCES [dbo].[LOC_City] ([CityID])
+GO
+
+ALTER TABLE [dbo].[MST_Student] CHECK CONSTRAINT [FK_MST_Student_LOC_City]
+GO
+
+ALTER TABLE [dbo].[MST_Student]  WITH CHECK ADD  CONSTRAINT [FK_MST_Student_MST_Branch] FOREIGN KEY([BranchID])
+REFERENCES [dbo].[MST_Branch] ([BranchID])
+GO
+
+ALTER TABLE [dbo].[MST_Student] CHECK CONSTRAINT [FK_MST_Student_MST_Branch]
+GO
+
+
+
+
+
+
+-- Create the Department table
+CREATE TABLE Department (
+    DID INT PRIMARY KEY,
+    Dname VARCHAR(255) NOT NULL
+);
+
+-- Create the Employee table with a foreign key reference to Department for DeptID and HOD (Manager)
+CREATE TABLE Employee (
+    EID INT PRIMARY KEY,
+    Ename VARCHAR(255) NOT NULL,
+    DeptID INT,
+    Salary DECIMAL(10, 2),
+    HOD INT,
+    FOREIGN KEY (DeptID) REFERENCES Department(DID),
+    FOREIGN KEY (HOD) REFERENCES Employee(EID)
+);

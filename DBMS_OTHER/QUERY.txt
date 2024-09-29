@@ -1,0 +1,89 @@
+Table 1 :: t_employee
+
+ID	Name			Department	Salary	Year_of_Experience
+1	Aakash Singh		Development	72000	2
+2	Abhishek Pawar	Production	45000	1
+3	Pranav Deshmukh	HR			59900	3
+4	Shubham Mahale	Accounts		57000	2
+su
+
+Table 2 :: t2_employee
+
+ID	Name			Department	Salary	Year_of_Experience
+1	Prashant Wagh	R&D		49000	1
+2	Abhishek Pawar	Production	45000	1
+3	Gautam Jain		Development	56000	4
+4	Shubham Mahale	Accounts		57000	2
+
+Table 1 :: t1_student
+
+ID	Name			Hometown	Percentage     Favourite_Subject
+1	Soniya Jain		Udaipur		89			Physics
+2	Harshada Sharma	Kanpur		92			Chemistry
+3	Anuja Rajput		Jaipur		78			History
+4	Pranali Singh		Nashik		88			Geography
+Table 4 :: t2_student
+
+ ID	Name		Hometown	Percentage 	Favourite_Subject
+1	Soniya Jain	Udaipur		89			Physics
+2	Ishwari Dixit	Delhi		86			Hindi
+3	Anuja Rajput	Jaipur		78			History
+4	Pakhi Arora	Surat		70			Sanskrit
+
+
+
+Query ::
+
+1. Write a query to perform union between the table t_employees and the table t2_employees.
+2. Write a query to perform union between the table t_students and the table t2_students.
+3. Write a query to perform union all operation between the table t_employees and the table t2_employees.
+4. Write a query to perform union all operation between the table t_students and the table t2_students.
+5. Write a query to perform intersect operation between the table t_employees and the table t2_employees.
+6. Write a query to perform intersect operation between the table t_students and the table t2_students.
+7. Write a query to perform a minus operation between the table t_employees and the table t2_employees.
+8. Write a query to perform a minus operation between the table t_students and the table t2_students.
+
+
+------------------------------------   Extra Query 2 --------------------------------------
+
+employees:
+
+employee_id	employee_name	department
+1		Alice		HR
+2		Bob		IT
+3		Carol		Sales
+4		David		Marketing
+
+
+contractors:
+
+contractor_id	contractor_name	department
+101		John		IT
+102		Sarah		Sales
+103		Emily		Financ
+104		Michael		Marketing
+
+
+Querys 
+
+1. Combine Employee and Contractor Names from the IT Department (UNION):
+2. Combine Employee and Contractor Names from the IT Department (UNION ALL):
+3. Find Common Names between Employees and Contractors in the Sales Department (INTERSECT):
+4. Find Employees in the Marketing Department Who Are Not Contractors (EXCEPT):
+5. Combine All Names from Both Tables (UNION):
+6. Combine All Names from Both Tables (UNION ALL):
+7. Find Common Names between Employees and Contractors in the Marketing Department (INTERSECT):
+8. Find Contractors in the Finance Department Who Are Not Employees (EXCEPT):
+9. Combine All Names from Both Tables (UNION):
+10. Combine All Names from Both Tables (UNION ALL):
+11. Combine Employee and Contractor Names from the IT and Sales Departments (UNION):
+12. Combine Employee and Contractor Names from the IT and Sales Departments (UNION ALL):
+13. Find Common Names between Employees and Contractors in the Finance and Marketing Departments (INTERSECT):
+14. Find Employees in the HR Department Who Are Not Contractors (EXCEPT):
+15. Combine All Names from Both Tables (UNION):
+16. Combine All Names from Both Tables (UNION ALL):
+17. Find Common Names between Employees and Contractors in the IT and Marketing Departments (INTERSECT):
+18. Find Contractors in the Sales Department Who Are Not Employees (EXCEPT):
+19. Combine All Names from Both Tables (UNION):
+20. Combine All Names from Both Tables (UNION ALL):
+

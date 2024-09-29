@@ -1,0 +1,8 @@
+1.count number of employee in IT department
+2.count number of employee in IT department from rajkot
+3.total salary of employee from ahemdabad in  IT department
+4.city wise salary sum
+5.department wise employee count
+6.display maximum salary of each department
+7.display sum salary who joined after 25-sep-90
+8.total salary of rajkot employee
